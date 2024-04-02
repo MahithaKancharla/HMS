@@ -45,6 +45,8 @@ class Hostel(models.Model):
     hostel_name = models.CharField(max_length=255)
     capacity = models.IntegerField()
 
+    def __str__(self):
+        return self.hostel_name
     
 class Room(models.Model):
     room_no = models.CharField(max_length=5)
