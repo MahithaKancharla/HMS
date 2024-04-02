@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import StudentInfo,WardenInfo
+from .models import StudentInfo,WardenInfo,Hostel,Room
 
 class ModelAttributeTest(TestCase):
     def test_model_attributes_exist(self):
@@ -14,3 +14,9 @@ class WardenInfoModelTest(TestCase):
         wardens = WardenInfo.objects.count()
 
         self.assertEqual(wardens,0)
+
+class HostelModelTest(TestCase):
+    def test_model_has_string_representation(self):
+        hostel = Hostel.objects.create(hostel_type='girls hostel',hostel_name='ABC hostel',capacity=500)
+        
+        self.assertEqual(str(hostel),hostel.hostel_name)

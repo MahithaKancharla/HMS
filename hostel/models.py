@@ -39,3 +39,19 @@ class WardenInfo(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Hostel(models.Model):
+    hostel_type = models.CharField(max_length=255,primary_key=True)
+    hostel_name = models.CharField(max_length=255)
+    capacity = models.IntegerField()
+
+    
+class Room(models.Model):
+    room_no = models.CharField(max_length=5)
+    member1_roll_no = models.ForeignKey('StudentInfo',on_delete=models.CASCADE,related_name='member1_rooms')
+    member2_roll_no = models.ForeignKey('StudentInfo',on_delete=models.CASCADE,related_name='member2_rooms')
+    vacant = models.BooleanField(default=False)
+    hostel = models.ForeignKey('Hostel', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.room_no
