@@ -34,8 +34,7 @@ class WardenInfo(models.Model):
     room_no = models.IntegerField()
     blood_group = models.CharField(max_length=255)
     contact_number = models.CharField(max_length=255)
-    ismale = models.BooleanField(default=False)
-    isfemale = models.BooleanField(default=False)
+    gender = models.CharField(max_length=255)
     email = models.EmailField()
 
     def __str__(self):
