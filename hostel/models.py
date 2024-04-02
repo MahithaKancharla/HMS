@@ -9,6 +9,16 @@ from datetime import date, datetime
 class StudentInfo(models.Model):
     roll_no = models.CharField(max_length=255,primary_key=True)
     name = models.CharField(max_length=255)
+    department = models.CharField(max_length=255)
+    joining_year = models.CharField(max_length=255)
+    room_no = models.IntegerField()
+    blood_group = models.CharField(max_length=255)
+    contact_number = models.CharField(max_length=255)
+    address = models.TextField()
+    gender = models.CharField(max_length=255)
+    email = models.EmailField()
+    father_name = models.CharField(max_length=255,null=True)
+    mother_name = models.CharField(max_length=255,null=True)
 
     def  __str__(self):
         return self.roll_no
