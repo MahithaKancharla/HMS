@@ -44,6 +44,7 @@ class Hostel(models.Model):
     hostel_type = models.CharField(max_length=255,primary_key=True)
     hostel_name = models.CharField(max_length=255)
     capacity = models.IntegerField()
+    filled_seats_count = models.IntegerField()
 
     def __str__(self):
         return self.hostel_name

@@ -17,6 +17,6 @@ class WardenInfoModelTest(TestCase):
 
 class HostelModelTest(TestCase):
     def test_model_has_string_representation(self):
-        hostel = Hostel.objects.create(hostel_type='girls hostel',hostel_name='ABC hostel',capacity=500)
+        hostel = Hostel.objects.create(hostel_type='girls hostel',hostel_name='ABC hostel',capacity=500,filled_seats_count=100)
         
         self.assertEqual(str(hostel),hostel.hostel_name)
