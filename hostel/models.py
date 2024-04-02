@@ -27,3 +27,16 @@ class StudentInfo(models.Model):
 
     def  __str__(self):
         return self.roll_no
+
+class WardenInfo(models.Model):
+    name = models.CharField(max_length=255)
+    joining_year = models.CharField(max_length=255)
+    room_no = models.IntegerField()
+    blood_group = models.CharField(max_length=255)
+    contact_number = models.CharField(max_length=255)
+    ismale = models.BooleanField(default=False)
+    isfemale = models.BooleanField(default=False)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.name
