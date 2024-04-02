@@ -15,10 +15,15 @@ class StudentInfo(models.Model):
     blood_group = models.CharField(max_length=255)
     contact_number = models.CharField(max_length=255)
     address = models.TextField()
-    gender = models.CharField(max_length=255)
+    gender = models.CharField(max_length=255,default=None)
     email = models.EmailField()
     father_name = models.CharField(max_length=255,null=True)
+    father_contact_number = models.CharField(max_length=255,null=True)
     mother_name = models.CharField(max_length=255,null=True)
+    mother_contact_number = models.CharField(max_length=255,null=True)
+    guardian_name = models.CharField(max_length=255,null=True)
+    guardian_contact_number = models.CharField(max_length=255,null=True)
+
 
     def  __str__(self):
         return self.roll_no
