@@ -20,3 +20,11 @@ class HostelModelTest(TestCase):
         hostel = Hostel.objects.create(hostel_type='girls hostel',hostel_name='ABC hostel',capacity=500,filled_seats_count=100)
         
         self.assertEqual(str(hostel),hostel.hostel_name)
+
+class IndexPageTest(TestCase):
+    def test_index_page_returns_correct_response(self):
+        response = self.client.get('/')
+
+        self.assertTemplateUsed(response,'hostel/index.html')
+        self.assertEqual(response.status.code,200)
+
