@@ -28,3 +28,11 @@ class IndexPageTest(TestCase):
         self.assertTemplateUsed(response,'index.html')
         self.assertEqual(response.status_code,200)
 
+class ListPageTest(TestCase):
+    def test_list_page_has_students(self):
+        response = self.client.get('/list',follow=True)
+
+        student1 = StudentInfo.objects.create(roll_no='211113',name='Mahitha',department='cse',joining_year='2021',room_no='8',blood_group='O+ve',contact_number='9705697956',address='Andhra pradesh',gender='Female',email='211113@iiitt.ac.in',father_name='Nagesh',father_contact_number='9999999234',mother_name='Vasudha',mother_contact_number='6587738573',guardian_name='priya',guardian_contact_number='5783875839')
+        student2 = StudentInfo.objects.create(roll_no='211114',name='Snigdha',department='cse',joining_year='2021',room_no='8',blood_group='AB+ve',contact_number='8748345843',address='Vijayawada',gender='Female',email='211114@iiitt.ac.in',father_name='Satish',father_contact_number='4625472372',mother_name='Seetha',mother_contact_number='6482684328',guardian_name='Reetha',guardian_contact_number='8728579102')
+
+        self.assertContains(response,student1.roll_no)
