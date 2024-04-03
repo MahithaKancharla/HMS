@@ -25,6 +25,6 @@ class IndexPageTest(TestCase):
     def test_index_page_returns_correct_response(self):
         response = self.client.get('/')
 
-        self.assertTemplateUsed(response,'hostel/index.html')
-        self.assertEqual(response.status.code,200)
+        self.assertTemplateUsed(response,'index.html')
+        self.assertEqual(response.status_code,200)
 
