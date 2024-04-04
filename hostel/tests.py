@@ -70,3 +70,12 @@ class WardenPageTest(TestCase):
         response = self.client.get('/profile',follow=True)
 
         self.assertContains(response,warden1.email)
+
+class VacancyPageTest(TestCase):
+    def test_vacancy_page(self):
+        hostel1 = Hostel.objects.create(hostel_type='girls_hostel',hostel_name='sudhamurthy',capacity=350,filled_seats_count=20)
+        hostel2 = Hostel.objects.create(hostel_type='boys_hostel',hostel_name='abdulkalam',capacity=500,filled_seats_count=30)
+
+        response = self.client.get('/vacancy',follow=True)
+
+        self.assertContains(response,hostel1.capacity-hostel1.filled_seats_count)

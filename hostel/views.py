@@ -120,3 +120,13 @@ def warden_list(request):
     wardens = WardenInfo.objects.all()
 
     return render(request,'profile.html',{'wardens':wardens})
+
+def vacancies(request):
+    girls = Hostel.objects.get(hostel_type='girls_hostel')
+    count1 = girls.capacity - girls.filled_seats_count
+    print(count1)
+    boys = Hostel.objects.get(hostel_type='boys_hostel')
+    count2 = boys.capacity - boys.filled_seats_count
+    print(count2)
+
+    return render(request,'vacancy.html',{'count1':count1,'count2':count2})
