@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 from django.forms.widgets import PasswordInput, TextInput
 
 
-
 # Create your models here.
 
 
