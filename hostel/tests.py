@@ -41,7 +41,7 @@ class ListPageTest(TestCase):
 class RegisterTestCase(TestCase):
     def test_password_validation(self):
         username = '211114@iiitt.ac.in'
-        password = '1234bcd'
+        password = '1234bcda@'
 
         self.user = User.objects.create_user(
             username=username, password=password)
