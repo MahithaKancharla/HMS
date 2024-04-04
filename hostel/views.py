@@ -129,4 +129,4 @@ def vacancies(request):
     count2 = boys.capacity - boys.filled_seats_count
     print(count2)
 
-    return render(request,'vacancy.html',{'count1':count1,'count2':count2})
+    return render(request,'vacancy.html',{'girls':girls,'boys':boys,'count1':count1,'count2':count2})
