@@ -1,16 +1,48 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel Management System</title>
+    <title>Hostel Management - IIITT</title>
+
+    <style>
+        .homepage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(22, 34, 57, 0.85);
+            height: 100vh;
+        }
+
+        .homepage h1,
+        .homepage h6 {
+            color: white;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .homepage a {
+            color: white;
+            text-decoration: none;
+            background-color: #ea9f26;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>
-        HOSTEL MANAGEMENT
-    </h1>
+    {% include 'navbar.html' %}
+
+    <div class="homepage">
+        <h6>INDIAN INSTITUTE OF INFORMATION TECHNOLOGY TIRUCHIRAPPALLI</h6>
+        <h1><span>HOSTEL</span> MANAGEMENT</h1>
+        <a href="/my-login">LOGIN</a>
+    </div>
 
 </body>
 

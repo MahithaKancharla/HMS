@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+    body {
+        {% comment %} margin: 0;
+        padding: 0; {% endcomment %}
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+         align-items: center;
+        background-color: rgba(22, 34, 57, 0.85);
+    }
+  
+      .heading h2 {
+        font-weight: bolder;
+    }
+  
+        .container{
+          margin-top:100px;
+          color:white;
+          padding: 20px;
+          border-radius: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+          width: 400px;
+        }
+  
+        form {
+          width: 50%;
+          margin: auto;
+          text-align: center;
+      }
+  
+      label {
+          display: block;
+          margin-bottom: 10px;
+      }
+  
+      input[type="text"],
+      input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+      }
+  
+      input[type="checkbox"] {
+          margin-right: 5px;
+      }
+  
+      button[type="submit"] {
+          background-color: #ea9f26;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 20px;
+          cursor: pointer;
+      }
+  
+      button[type="submit"]:hover {
+          background-color: #d88b20;
+      }
+  
+      .alert {
+          color: red;
+          margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% comment %} <h1>Registration page</h1> {% endcomment %}
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            <h2>Register here</h2>
+            
+            <label for="username">Email:</label><br>
+            <input type="text" placeholder="Email" id="username" name="username" required><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" placeholder="Password" id="password" name="password" required><br>
+            
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" required><br><br>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>

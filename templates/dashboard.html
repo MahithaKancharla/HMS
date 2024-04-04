@@ -1,0 +1,90 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        {% comment %} .dash1
+        {
+            display:grid;
+            grid-template-columns:1fr 3fr;
+            grid-template-rows:1fr 1fr 1fr;
+            height:90vh;
+            grid-gap: 18px;
+            background-image: url("{% static 'Clubbg.png' %}");
+            background-size:cover;
+            background-repeat: no-repeat;
+            padding:3%;
+        }
+
+        .hello{
+            margin-top:89px;
+            grid-column: span 2;
+            border: 2px solid #171616;
+        } {% endcomment %}
+
+        .dash1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hello{
+            margin-top:89px;
+            align-items: center;
+            {% comment %} grid-column: span 2; {% endcomment %}
+            {% comment %} border: 2px solid #171616; {% endcomment %}
+        }
+
+        .lists {
+            margin-top: 350px;
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .lists li {
+            margin: 0 10px;
+        }
+    
+        .lists li a {
+            text-decoration: none;
+        }
+
+        .lists a {
+            color: white;
+            text-decoration: none;
+            background-color: #ea9f26;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .lists a:hover{
+            background-color: #9a6b1a;
+        }
+
+    </style>
+</head>
+<body>
+    {% include 'd.html' %}
+    <div class='dash1'>
+        <div class='hello'>
+            <h1>Dashboard page</h1>
+            <h2>Hello {{username}}</h2>
+        </div>
+        <div class="lists">
+            <li><a  href="/dashboard">Dash Board</a></li>
+            <li><a href="/list">Students list</a></li>
+            <li><a href="/eventslist">Room Vacancies</a></li>
+            <li><a href="/requestOd">Contact for emergency</a></li>
+            {% comment %} profile page, list of students, list of wardens, no.of vacancies in each hostel {% endcomment %}
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <style>
+    body {
+      {% comment %} margin: 0;
+      padding: 0; {% endcomment %}
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+       align-items: center;
+      background-color: rgba(22, 34, 57, 0.85);
+  }
+
+    .heading h2 {
+      font-weight: bolder;
+  }
+
+      .container{
+        margin-top:198px;
+        color:white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+        width: 400px;
+      }
+
+      form {
+        width: 50%;
+        margin: auto;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+
+    button[type="submit"] {
+        background-color: #ea9f26;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #d88b20;
+    }
+
+    .alert {
+        color: red;
+        margin-bottom: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  <div class="container">
+    {% comment %} <h1>Login page</h1> {% endcomment %}
+    <form method="post" action="/my-login"> 
+      {% csrf_token %}
+      <h2>Sign in</h2>
+
+        <label for="floatingInput">Email:</label><br>
+        <input type="text"  placeholder="Email" id="floatingInput" name="username" required><br>
+
+        <label for="floatingPassword">Password:</label><br>
+        <input type="password" placeholder="Password" id="floatingPassword" name="password" required><br>
+
+        <input type="checkbox" id="showPassword"> Show Password<br><br>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div style="color:red;" class="alert pt-0 alert-{{ message.tags}} alert-dismissible fade show my-0"
+          role="alert">
+          <strong>{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var passwordInput = document.getElementById('floatingPassword');
+      var showPasswordCheckbox = document.getElementById('showPassword');
+
+      showPasswordCheckbox.addEventListener('change', function () {
+        if (showPasswordCheckbox.checked) {
+          passwordInput.type = 'text';
+        } else {
+          passwordInput.type = 'password';
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
