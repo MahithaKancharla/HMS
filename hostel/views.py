@@ -110,3 +110,7 @@ def student_list(request):
     students = StudentInfo.objects.all()
 
     return render(request,'list.html',{'students':students})
+
+def userprofile(request,pk):
+    student_profile = StudentInfo.objects.get(roll_no=pk)
+    return render(request,'profile.html',{'student_profile':student_profile})
