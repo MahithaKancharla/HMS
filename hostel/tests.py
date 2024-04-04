@@ -61,3 +61,12 @@ class RegisterTestCase(TestCase):
 
 #         self.assertTemplateUsed(response,'profile.html')
 #         self.assertEqual(response.status_code,200)
+
+class WardenPageTest(TestCase):
+    def test_warden_page(self):
+        warden1 = WardenInfo.objects.create(name='Merslin',joining_year='2021',room_no='58',blood_group='O+ve',contact_number='2749128201',gender='Female',email='Merslin@iiitt.ac.in')
+        warden2 = WardenInfo.objects.create(name='Ravi',joining_year='2019',room_no='222',blood_group='O+ve',contact_number='6276822892',gender='Male',email='Ravi@iiitt.ac.in')
+
+        response = self.client.get('/profile',follow=True)
+
+        self.assertContains(response,warden1.email)

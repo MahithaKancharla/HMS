@@ -104,8 +104,10 @@ def dashboard(request):
         username = request.user.username
         print(username)
         # return render(request, 'dashboard.html', {"username": username.upper()})
-        student_profile = StudentInfo.objects.get(email=username)
-        return render(request,'dashboard.html',{"username": student_profile.name.upper(),'student_profile':student_profile})
+        profile = StudentInfo.objects.get(email=username)
+        if profile is None: 
+            profile = WardenInfo.objects.get(email=username)
+        return render(request,'dashboard.html',{"username": profile.name.upper(),'student_profile':profile})
 
     
 
@@ -114,4 +116,7 @@ def student_list(request):
 
     return render(request,'list.html',{'students':students})
 
+def warden_list(request):
+    wardens = WardenInfo.objects.all()
 
+    return render(request,'profile.html',{'wardens':wardens})
