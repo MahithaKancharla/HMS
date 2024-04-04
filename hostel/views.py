@@ -114,3 +114,4 @@ def student_list(request):
 def userprofile(request,pk):
     student_profile = StudentInfo.objects.get(roll_no=pk)
     return render(request,'profile.html',{'student_profile':student_profile})
+
