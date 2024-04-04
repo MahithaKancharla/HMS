@@ -1,22 +1,85 @@
-<h1>Welcome</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-{% for student in students %}
-    <p>
-        {{student.roll_no}}
-        {{student.name}}
-        {{student.department}}
-        {{student.joining_year}}
-        {{student.room_no}}
-        {{student.blood_group}}
-        {{student.contact_number}}
-        {{student.address}}
-        {{student.gender}}
-        {{student.email}}
-        {{student.father_name}}
-        {{student.father_contact_number}}
-        {{student.mother_name}}
-        {{student.mother_contact_number}}
-        {{student.guardian_name}}
-        {{student.guardian_contact_number}}
-    </p>
-{% endfor %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Information</title>
+    <style>
+        table {
+            margin-top: 33px;
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            color: #dcdbdb;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'd.html' %}
+
+    <div>
+        <h1>Welcome</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    <th>Room No</th>
+                    <th>Blood Group</th>
+                    <th>Contact Number</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Father's Name</th>
+                    <th>Father's Contact Number</th>
+                    <th>Mother's Name</th>
+                    <th>Mother's Contact Number</th>
+                    <th>Guardian's Name</th>
+                    <th>Guardian's Contact Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.roll_no }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.department }}</td>
+                    <td>{{ student.joining_year }}</td>
+                    <td>{{ student.room_no }}</td>
+                    <td>{{ student.blood_group }}</td>
+                    <td>{{ student.contact_number }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.father_name }}</td>
+                    <td>{{ student.father_contact_number }}</td>
+                    <td>{{ student.mother_name }}</td>
+                    <td>{{ student.mother_contact_number }}</td>
+                    <td>{{ student.guardian_name }}</td>
+                    <td>{{ student.guardian_contact_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

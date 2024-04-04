@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import StudentInfo,WardenInfo,Hostel,Room
+from django.contrib.auth.models import User
 
 class ModelAttributeTest(TestCase):
     def test_model_attributes_exist(self):
@@ -36,3 +37,18 @@ class ListPageTest(TestCase):
         response = self.client.get('/list',follow=True)
 
         self.assertContains(response,student1.roll_no)
+
+class RegisterTestCase(TestCase):
+    def test_password_validation(self):
+        username = '211114@iiitt.ac.in'
+        password = '1234abcd@'
+
+        self.user = User.objects.create_user(
+            username=username, password=password)
+        self.assertTrue(
+            self.is_valid_password(
+                password), f"Password '{password}' should be valid"
+        )
+
+    def is_valid_password(self, password):
+        return len(password) >= 8 and any(char.isdigit() for char in password) and any(char.isalpha() for char in password) and any(char in '!@#$%^&*()-_=+[{]}|;:,<.>/?' for char in password)
