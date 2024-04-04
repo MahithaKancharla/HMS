@@ -53,11 +53,11 @@ class RegisterTestCase(TestCase):
     def is_valid_password(self, password):
         return len(password) >= 8 and any(char.isdigit() for char in password) and any(char.isalpha() for char in password) and any(char in '!@#$%^&*()-_=+[{]}|;:,<.>/?' for char in password)
     
-class ProfilePageTest(TestCase):
-    def test_profile_page_has_students(self):
-        student = StudentInfo.objects.create(roll_no='211113',name='Mahitha',department='cse',joining_year='2021',room_no='8',blood_group='O+ve',contact_number='9705697956',address='Andhra pradesh',gender='Female',email='211113@iiitt.ac.in',father_name='Nagesh',father_contact_number='9999999234',mother_name='Vasudha',mother_contact_number='6587738573',guardian_name='priya',guardian_contact_number='5783875839')
+# class ProfilePageTest(TestCase):
+#     def test_profile_page_has_students(self):
+#         student = StudentInfo.objects.create(roll_no='211113',name='Mahitha',department='cse',joining_year='2021',room_no='8',blood_group='O+ve',contact_number='9705697956',address='Andhra pradesh',gender='Female',email='211113@iiitt.ac.in',father_name='Nagesh',father_contact_number='9999999234',mother_name='Vasudha',mother_contact_number='6587738573',guardian_name='priya',guardian_contact_number='5783875839')
         
-        response = self.client.get(f'/{student.roll_no}/')
+#         response = self.client.get(f'/{student.roll_no}/')
 
-        self.assertTemplateUsed(response,'profile.html')
-        self.assertEqual(response.status_code,200)
+#         self.assertTemplateUsed(response,'profile.html')
+#         self.assertEqual(response.status_code,200)

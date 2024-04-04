@@ -103,7 +103,10 @@ def dashboard(request):
     if request.user.is_authenticated:
         username = request.user.username
         print(username)
-        return render(request, 'dashboard.html', {"username": username.upper()})
+        # return render(request, 'dashboard.html', {"username": username.upper()})
+        student_profile = StudentInfo.objects.get(email=username)
+        return render(request,'dashboard.html',{"username": student_profile.name.upper(),'student_profile':student_profile})
+
     
 
 def student_list(request):
@@ -111,7 +114,4 @@ def student_list(request):
 
     return render(request,'list.html',{'students':students})
 
-def userprofile(request,pk):
-    student_profile = StudentInfo.objects.get(roll_no=pk)
-    return render(request,'profile.html',{'student_profile':student_profile})
 
