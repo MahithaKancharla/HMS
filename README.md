@@ -27,7 +27,7 @@ The Hostel Management System is a user-friendly web platform that centralizes al
 
 ## UML Diagram
 
-
+![1](https://github.com/MahithaKancharla/HMS/blob/main/static/uml.png)
 
 ## How To Run
 
