@@ -119,7 +119,7 @@ def student_list(request):
 def warden_list(request):
     wardens = WardenInfo.objects.all()
 
-    return render(request,'profile.html',{'wardens':wardens})
+    return render(request,'wardeninfo.html',{'wardens':wardens})
 
 def vacancies(request):
     girls = Hostel.objects.get(hostel_type='girls_hostel')

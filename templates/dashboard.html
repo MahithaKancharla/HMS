@@ -30,6 +30,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            color:white;
         }
 
         .hello{
@@ -40,7 +41,7 @@
         }
 
         .lists {
-            margin-top: 350px;
+            margin-top: 30px;
             display: flex;
             list-style-type: none;
             padding: 0;
@@ -73,26 +74,28 @@
     {% include 'd.html' %}
     <div class='dash1'>
         <div class='hello'>
-            <h1>Dashboard page</h1>
+            {% comment %} <h1>Dashboard page</h1> {% endcomment %}
             <h2>Hello {{username}}</h2>
 
             <h1>Welcome</h1>
 
-            {{student_profile.roll_no}}
-            {{student_profile.name}}
-            {{student_profile.department}}
-            {{student_profile.joining_year}}
-            {{student_profile.blood_group}}
-            {{student_profile.contact_number}}
-            {{student_profile.gender}}
-            {{student_profile.email}}
+            {% comment %} <div class='hello' style="background-color: black; padding: 10px;"> {% endcomment %}
+                <p><strong style="color: white;">Roll No:</strong> {{ student_profile.roll_no }}</p>
+                <p><strong style="color: white;">Name:</strong> {{ student_profile.name }}</p>
+                <p><strong style="color: white;">Department:</strong> {{ student_profile.department }}</p>
+                <p><strong style="color: white;">Joining Year:</strong> {{ student_profile.joining_year }}</p>
+                <p><strong style="color: white;">Blood Group:</strong> {{ student_profile.blood_group }}</p>
+                <p><strong style="color: white;">Contact Number:</strong> {{ student_profile.contact_number }}</p>
+                <p><strong style="color: white;">Gender:</strong> {{ student_profile.gender }}</p>
+                <p><strong style="color: white;">Email:</strong> {{ student_profile.email }}</p>
+            {% comment %} </div> {% endcomment %}
 
         </div>
         <div class="lists">
             <li><a  href="/dashboard">Dash Board</a></li>
             <li><a href="/list">Students list</a></li>
-            <li><a href="/eventslist">Room Vacancies</a></li>
-            <li><a href="/requestOd">Contact for emergency</a></li>
+            <li><a href="/vacancy">Room Vacancies</a></li>
+            <li><a href="/warden">Contact for emergency</a></li>
             {% comment %} profile page, list of students, list of wardens, no.of vacancies in each hostel {% endcomment %}
         </div>
     </div>

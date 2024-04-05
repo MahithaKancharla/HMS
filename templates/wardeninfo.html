@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Information</title>
+    <style>
+        table {
+         border-collapse: collapse;
+         width: 50%;
+         margin-top: 33px;
+         margin: 33px auto 0; 
+     }
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            color: #dcdbdb;
+        }
+    </style>
+</head>
+
+<body>
+    {% include 'd.html' %}
+
+    <div>
+        <h1>Welcome</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact Number</th>
+                    <th>Joining Year</th>
+                    <th>Room No</th>
+                    <th>Blood Group</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                  {% for warden in wardens%}
+                <tr>
+                    <td>{{ warden.name }}</td>
+                    <td>{{ warden.contact_number }}</td>
+                    <td>{{ warden.joining_year }}</td>
+                    <td>{{ warden.room_no }}</td>
+                    <td>{{ warden.blood_group }}</td>
+                    <td>{{ warden.gender }}</td>
+                    <td>{{ warden.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

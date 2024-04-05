@@ -4,3 +4,80 @@
         {{count1}}
         {{boys.hostel_type}}
         {{count2}}
+
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dashboard</title>
+            <style>
+                body {
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                }
+                
+                .vacancy-section {
+                    {% comment %} background-color: black; {% endcomment %}
+                    color: white;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                }
+        
+                .dashboard-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: white;
+                }
+        
+                .hello, .lists {
+                    width: 80%;
+                    max-width: 600px;
+                    margin-bottom: 20px;
+                }
+        
+                .lists {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+        
+                .lists li {
+                    margin: 0 10px;
+                }
+        
+                .lists li a {
+                    text-decoration: none;
+                }
+        
+                .lists a {
+                    color: white;
+                    text-decoration: none;
+                    background-color: #ea9f26;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+        
+                .lists a:hover {
+                    background-color: #9a6b1a;
+                }
+            </style>
+        </head>
+        <body>
+                {% include 'd.html' %}
+            <div class="vacancy-section">
+                <h2>Vacancies</h2>
+                <p><strong>Girls Hostel Type:</strong> {{ girls.hostel_type }}</p>
+                <p><strong>Girls Hostel vacancies:</strong> {{ count1 }}</p>
+                <p><strong>Boys Hostel Type:</strong> {{ boys.hostel_type }}</p>
+                <p><strong>Boys Hostel vacancies:</strong> {{ count2 }}</p>
+            </div>
+        
+           
+        </body>
+        </html>
+        
